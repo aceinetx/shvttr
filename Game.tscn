@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=3 uid="uid://b7lhplctcjfpi"]
+
+[ext_resource type="Script" uid="uid://cqtri2qguy4bi" path="res://game.gd" id="1_u44n3"]
+[ext_resource type="Script" uid="uid://cmjr7etapv8ba" path="res://camera_3d.gd" id="1_wbfu4"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_6ubv3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wbfu4"]
+size = Vector3(10.197723, 5.6613464, 0.9949951)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xkndl"]
+size = Vector3(10.208008, 0.7285156, 1)
+
+[node name="Game" type="Node3D"]
+script = ExtResource("1_u44n3")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.71782327)
+script = ExtResource("1_wbfu4")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4.148899)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+transform = Transform3D(10.2023735, 0, 0, 0, 5.6515117, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_6ubv3")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.005508423, 0.010513306, -0.0025024414)
+shape = SubResource("BoxShape3D_wbfu4")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+omni_range = 148.584
+omni_attenuation = 0.0
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.4496953, -3.1569881)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2"]
+transform = Transform3D(10.202, 0, 0, 0, 0.737, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_6ubv3")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0014648438, 0, 0)
+shape = SubResource("BoxShape3D_xkndl")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ScoreLabel" type="Label" parent="UI"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Score: 0"

@@ -1,0 +1,19 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+*.x86_64
+*.sh
+*.apk
+*.apk.*
+*.pck
+*.uid
+*.xcframework
+*.xcodeproj
+*.xcprivacy
+*.apple-touch-icon.*
+*.js
+*.html
+*.wasm
+*.icon.*
+*.exe
+travka/
