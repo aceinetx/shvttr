@@ -1,7 +1,7 @@
 extends RigidBody3D
 class_name Bullet
 
-var lifetime: float = 5.
+var lifetime: float = 10.
 
 func _ready() -> void:
 	contact_monitor = true
@@ -15,10 +15,10 @@ func destroy_with_animation() -> void:
 	lifetime = 0x100
 	
 func collision(body: Node) -> void:
-	if body is Cube:
+	if body is Cube and not body.is_shattered():
 		body.shatter()
 		G.game.add_score(body.score)
-		destroy_with_animation()
+		#destroy_with_animation()
 
 func _process(delta: float) -> void:
 	lifetime -= delta

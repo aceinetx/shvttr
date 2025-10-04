@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://b7lhplctcjfpi"]
+[gd_scene load_steps=9 format=3 uid="uid://b7lhplctcjfpi"]
 
 [ext_resource type="Script" uid="uid://cqtri2qguy4bi" path="res://game.gd" id="1_u44n3"]
 [ext_resource type="Script" uid="uid://cmjr7etapv8ba" path="res://camera_3d.gd" id="1_wbfu4"]
+[ext_resource type="PackedScene" uid="uid://drbfqckmq7i2k" path="res://Cube.tscn" id="3_u44n3"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_6ubv3"]
 
@@ -10,6 +11,16 @@ size = Vector3(10.197723, 5.6613464, 0.9949951)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_xkndl"]
 size = Vector3(10.208008, 0.7285156, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_xkndl"]
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Environment" id="Environment_xkndl"]
+background_mode = 1
+background_color = Color(0.85393524, 0.99999994, 0.9925236, 1)
+ambient_light_source = 3
+ambient_light_energy = 1.49
+reflected_light_source = 2
 
 [node name="Game" type="Node3D"]
 script = ExtResource("1_u44n3")
@@ -57,3 +68,20 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 text = "Score: 0"
+label_settings = SubResource("LabelSettings_xkndl")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_xkndl")
+
+[node name="ReflectionProbe" type="ReflectionProbe" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.013747692, 0, -3.2881966)
+update_mode = 1
+size = Vector3(10.295, 10, 10)
+
+[node name="Cube" parent="." instance=ExtResource("3_u44n3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.752168)
+
+[node name="Cube2" parent="." instance=ExtResource("3_u44n3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8995415, 0, -2.752168)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
