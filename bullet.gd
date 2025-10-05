@@ -16,6 +16,7 @@ func destroy_with_animation() -> void:
 	
 func collision(body: Node) -> void:
 	if body is Cube and not body.is_shattered():
+		lifetime += 5
 		body.shatter()
 		G.game.add_score(body.score)
 		

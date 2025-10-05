@@ -5,7 +5,7 @@ class_name Cube
 @onready var voronoi_shatter = $VoronoiShatter
 @onready var mesh = $VoronoiShatter/MeshInstance3D
 @onready var score_label = $Label3D
-var _pieces_lifetime: float = 5
+var _pieces_lifetime: float = randf() * 7
 var _lifetime: float = 0x1000
 var _shattered = false
 var score: int

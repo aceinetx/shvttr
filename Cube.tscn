@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=4 uid="uid://drbfqckmq7i2k"]
+[gd_scene load_steps=47 format=4 uid="uid://drbfqckmq7i2k"]
 
 [ext_resource type="Script" uid="uid://s2sgfreo3x1l" path="res://cube.gd" id="1_ae35o"]
 [ext_resource type="Script" uid="uid://da087cg46iawj" path="res://addons/voronoishatter/tools/voronoishatter.gd" id="1_k3834"]
@@ -12,11 +12,21 @@ albedo_color = Color(0.8, 1, 1, 0.39607844)
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ae35o"]
 albedo_color = Color(0.8, 1, 1, 0.52156866)
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_vmytl"]
+noise_type = 4
+seed = 15
+frequency = 0.0038
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_vmytl"]
+noise = SubResource("FastNoiseLite_vmytl")
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a2kvu"]
 transparency = 1
-albedo_color = Color(0.44, 0.89733326, 1, 0.70980394)
-metallic = 1.0
-roughness = 0.62
+albedo_color = Color(0, 0.8060001, 0.93, 0.68235296)
+metallic = 0.68
+roughness = 0.22
+normal_enabled = true
+normal_texture = SubResource("NoiseTexture2D_vmytl")
 
 [sub_resource type="BoxMesh" id="BoxMesh_k3834"]
 material = SubResource("StandardMaterial3D_a2kvu")
