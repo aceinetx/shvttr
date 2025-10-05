@@ -5,7 +5,7 @@ class_name Cube
 @onready var voronoi_shatter = $VoronoiShatter
 @onready var mesh = $VoronoiShatter/MeshInstance3D
 @onready var score_label = $Label3D
-var _pieces_lifetime: float = 2.0
+var _pieces_lifetime: float = 5
 var _lifetime: float = 0x1000
 var _shattered = false
 var score: int
@@ -21,6 +21,7 @@ func _ready() -> void:
 		if child is RigidBody3D:
 			child.collision_layer = 1 << 3
 			child.freeze = true
+			
 			for inner in child.get_children():
 				if inner is MeshInstance3D:
 					inner.mesh.surface_set_material(0, mesh.get_active_material(0))
@@ -54,7 +55,7 @@ func shatter() -> void:
 	for child in collection.get_children():
 		if child is RigidBody3D:
 			child.freeze = false
-			child.collision_layer = 1 << 1
+			child.collision_layer = 1
 	_shattered = true
 	
 	collision_layer = 1 << 3

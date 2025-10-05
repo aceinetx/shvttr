@@ -18,6 +18,12 @@ func collision(body: Node) -> void:
 	if body is Cube and not body.is_shattered():
 		body.shatter()
 		G.game.add_score(body.score)
+		
+		var sound_player = preload("res://BreakSoundPlayer.tscn").instantiate()
+		sound_player.pitch_scale = 1.0 + (randf() / 2 - 0.25)
+		G.game.add_child(sound_player)
+		sound_player.play()
+		sound_player.position = body.position
 		#destroy_with_animation()
 
 func _process(delta: float) -> void:

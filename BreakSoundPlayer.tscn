@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://0wf5r2em6r83"]
+
+[ext_resource type="AudioStream" uid="uid://dskx31phidvrb" path="res://glass_break.wav" id="1_l8qtx"]
+[ext_resource type="Script" uid="uid://clxkmwr8wyevd" path="res://break_sound_player.gd" id="2_ee57o"]
+
+[node name="BreakSoundPlayer" type="AudioStreamPlayer3D"]
+stream = ExtResource("1_l8qtx")
+script = ExtResource("2_ee57o")

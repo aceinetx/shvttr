@@ -3,7 +3,7 @@ class_name Game
 
 var _next_spawn_time: float = 1.0
 var _score: int = 0
-@onready var score_label = $UI/ScoreLabel
+@onready var score_label: Label = $UI/ScoreLabel
 
 func _ready() -> void:
 	G.game = self

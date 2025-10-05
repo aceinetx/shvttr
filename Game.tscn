@@ -73,11 +73,6 @@ label_settings = SubResource("LabelSettings_xkndl")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_xkndl")
 
-[node name="ReflectionProbe" type="ReflectionProbe" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.013747692, 0, -3.2881966)
-update_mode = 1
-size = Vector3(10.295, 10, 10)
-
 [node name="Cube" parent="." instance=ExtResource("3_u44n3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.752168)
 
